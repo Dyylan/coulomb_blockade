@@ -7,4 +7,3 @@ function generateSourceLine(sourceVal) {
     context.rect(0, canvas.height-sourceVal, canvas.width , canvas.height);
     context.stroke();
 }
-
