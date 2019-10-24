@@ -1,5 +1,5 @@
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
+var slider = document.getElementById("source-slider");
+var output = document.getElementById("source-value");
 output.innerHTML = slider.value;
 
 slider.oninput = function() {
