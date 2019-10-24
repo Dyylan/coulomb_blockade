@@ -12,3 +12,10 @@ function generateSourceLine(sourceVal) {
     context.rect(0, canvas.height - (sourceVal * canvas.height)/110  , levelWidth, canvas.height);
     context.stroke();
 }
+
+function generateDrainLine(drainVal) {
+    context.clearRect((levelWidth+spacingWidth)*2 - 1, 0, levelWidth + 2, canvas.height);
+    context.beginPath();
+    context.rect((levelWidth+spacingWidth)*2, canvas.height - (drainVal * canvas.height)/110  , levelWidth, canvas.height);
+    context.stroke();
+}
