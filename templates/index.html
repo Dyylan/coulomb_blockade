@@ -15,14 +15,15 @@
         <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
     </head>
 <body>
-    <h1>The Colomb Blockade</h1>
-    <canvas id="chemical-potentials" width="200" height="100" style="border:1px solid #000000;"></canvas>
+    <h1>The Coulomb Blockade</h1>
+    <canvas id="chemical-potentials" width="500" height="300"></canvas>
     
     <div class="slidecontainer">
       <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
       <p>Value: <span id="demo"></span></p>
     </div>    
     
+    <script src="{{ url_for('static', filename='js/chemical_potential.js') }}"></script>    
     <script src="{{ url_for('static', filename='js/slider.js') }}"></script>
 </body>
 </html>
