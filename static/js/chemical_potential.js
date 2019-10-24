@@ -4,7 +4,7 @@ var context = canvas.getContext("2d");
 function generateSourceLine(sourceVal) {
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.beginPath();
-    context.rect(0, canvas.height-sourceVal, 150, canvas.height);
+    context.rect(0, canvas.height-sourceVal, canvas.width , canvas.height);
     context.stroke();
 }
 
