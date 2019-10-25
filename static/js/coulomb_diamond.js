@@ -4,10 +4,12 @@ diamondCanvas.width = diamondContainer.offsetWidth;
 var diamondContext = diamondCanvas.getContext("2d");
 diamondContext.lineWidth = 2;
 
+var diamondCount = 0;
+
 var diamondSize = { 
     height : 250,
     width : diamondCanvas.width/4,
-    ratio : 0.8
+    ratio : chargingEnergy / (chargingEnergy + quantumEnergy)
 };
 
 var vSDzero = {
@@ -16,13 +18,13 @@ var vSDzero = {
 };
 
 function drawGreyBackground() {
-    diamondContext.fillStyle = "EBECF0";
+    diamondContext.fillStyle = "#EBECF0";
     diamondContext.fillRect(0, 0, diamondCanvas.width, diamondCanvas.height);
 }
 
 function drawCoulombDiamondAxis() {
     diamondContext.beginPath();
-    diamondContext.strokeStyle = "#444";
+    diamondContext.strokeStyle = "#444444";
     diamondContext.moveTo(0,0);
     diamondContext.lineTo(0, diamondCanvas.height);
 
@@ -33,6 +35,7 @@ function drawCoulombDiamondAxis() {
 }
 
 function addCoulombDiamond(x, y, width, height) {
+    diamondCount += 1;
     diamondContext.beginPath();
 
     diamondContext.strokeStyle = "#000";
@@ -71,6 +74,25 @@ function drawDiamonds(x0, y0) {
         diamondSize.width, diamondSize.height);
 }
 
+function drawDot(x, y) {
+    diamondContext.fillStyle = "#FF0000";
+    diamondContext.beginPath();
+    diamondContext.arc(x, y, 2, 0, 2 * Math.PI);
+    diamondContext.fill();
+}
+
+function calculateDiamondPosition(sourceValue, drainValue, gateValue) {
+    var xFactor = (diamondSize.width/(chargingEnergy + quantumEnergy));
+    var xDiff = 60;
+    var yFactor = (diamondSize.height/(chargingEnergy + quantumEnergy));
+    var coulombDiamondPosition = {
+        x : xFactor * (gateValue - xDiff),
+        y : vSDzero.y - (yFactor * (sourceValue - drainValue))
+    };
+    drawDot(coulombDiamondPosition.x, coulombDiamondPosition.y);
+}
+
 drawGreyBackground();
 drawDiamonds(vSDzero.x, vSDzero.y);
 drawCoulombDiamondAxis();
+
