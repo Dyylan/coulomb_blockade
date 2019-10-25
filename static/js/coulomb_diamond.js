@@ -4,6 +4,8 @@ diamondCanvas.width = diamondContainer.offsetWidth;
 var diamondContext = diamondCanvas.getContext("2d");
 diamondContext.lineWidth = 2;
 
+var diamondCount = 0;
+
 var diamondSize = { 
     height : 250,
     width : diamondCanvas.width/4,
@@ -22,7 +24,7 @@ function drawGreyBackground() {
 
 function drawCoulombDiamondAxis() {
     diamondContext.beginPath();
-    diamondContext.strokeStyle = "#444";
+    diamondContext.strokeStyle = "#444444";
     diamondContext.moveTo(0,0);
     diamondContext.lineTo(0, diamondCanvas.height);
 
@@ -33,6 +35,7 @@ function drawCoulombDiamondAxis() {
 }
 
 function addCoulombDiamond(x, y, width, height) {
+    diamondCount += 1;
     diamondContext.beginPath();
 
     diamondContext.strokeStyle = "#000";
@@ -71,6 +74,14 @@ function drawDiamonds(x0, y0) {
         diamondSize.width, diamondSize.height);
 }
 
+function drawDot(x, y) {
+    diamondContext.fillStyle = "#FF0000";
+    diamondContext.beginPath();
+    diamondContext.arc(x, y, 5, 0, 2 * Math.PI);
+    diamondContext.fill();
+}
+
 drawGreyBackground();
 drawDiamonds(vSDzero.x, vSDzero.y);
 drawCoulombDiamondAxis();
+drawDot(200, 200);
