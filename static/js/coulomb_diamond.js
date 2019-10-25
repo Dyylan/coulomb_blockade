@@ -18,7 +18,7 @@ var vSDzero = {
 };
 
 function drawGreyBackground() {
-    diamondContext.fillStyle = "EBECF0";
+    diamondContext.fillStyle = "#EBECF0";
     diamondContext.fillRect(0, 0, diamondCanvas.width, diamondCanvas.height);
 }
 
@@ -77,11 +77,21 @@ function drawDiamonds(x0, y0) {
 function drawDot(x, y) {
     diamondContext.fillStyle = "#FF0000";
     diamondContext.beginPath();
-    diamondContext.arc(x, y, 5, 0, 2 * Math.PI);
+    diamondContext.arc(x, y, 2, 0, 2 * Math.PI);
     diamondContext.fill();
+}
+
+function calculateDiamondPosition(sourceValue, drainValue, gateValue) {
+    var coulombDiamondPosition = {
+        //x : (diamondCanvas.width / 100) * gateValue,
+        //y : (diamondCanvas.height / 100) * (vSDzero.y - (sourceValue - drainValue)),
+        x : gateValue,
+        y : (vSDzero.y - (sourceValue - drainValue))
+    };
+    drawDot(coulombDiamondPosition.x, coulombDiamondPosition.y);
 }
 
 drawGreyBackground();
 drawDiamonds(vSDzero.x, vSDzero.y);
 drawCoulombDiamondAxis();
-drawDot(200, 200);
+
