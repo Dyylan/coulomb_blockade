@@ -9,7 +9,7 @@ var diamondCount = 0;
 var diamondSize = { 
     height : 250,
     width : diamondCanvas.width/4,
-    ratio : 0.8
+    ratio : chargingEnergy / (chargingEnergy + quantumEnergy)
 };
 
 var vSDzero = {
@@ -82,11 +82,12 @@ function drawDot(x, y) {
 }
 
 function calculateDiamondPosition(sourceValue, drainValue, gateValue) {
+    var xFactor = (diamondSize.width/(chargingEnergy + quantumEnergy));
+    var xDiff = 60;
+    var yFactor = (diamondSize.height/(chargingEnergy + quantumEnergy));
     var coulombDiamondPosition = {
-        //x : (diamondCanvas.width / 100) * gateValue,
-        //y : (diamondCanvas.height / 100) * (vSDzero.y - (sourceValue - drainValue)),
-        x : gateValue,
-        y : (vSDzero.y - (sourceValue - drainValue))
+        x : xFactor * (gateValue - xDiff),
+        y : vSDzero.y - (yFactor * (sourceValue - drainValue))
     };
     drawDot(coulombDiamondPosition.x, coulombDiamondPosition.y);
 }
