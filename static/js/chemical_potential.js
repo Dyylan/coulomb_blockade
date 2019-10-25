@@ -35,7 +35,7 @@ function generateIslandLine(islandVal) {
     potentialsContext.moveTo((  levelWidth + spacingWidth) , ((islandVal - chargingEnergy - quantumEnergy - chargingEnergy - chargingEnergy - quantumEnergy - chargingEnergy) * potentialsCanvas.height)/110); //U(N+4) line
     potentialsContext.lineTo((2*levelWidth + spacingWidth) , ((islandVal - chargingEnergy - quantumEnergy - chargingEnergy - chargingEnergy - quantumEnergy - chargingEnergy) * potentialsCanvas.height)/110); 
     
-    potentialsContext.strokeStyle = '#c58025';
+    potentialsContext.strokeStyle = '#FF9E20';
     potentialsContext.stroke();
 
     potentialsContext.beginPath();
@@ -45,7 +45,6 @@ function generateIslandLine(islandVal) {
     potentialsContext.moveTo((  levelWidth + spacingWidth) , ((islandVal - chargingEnergy - quantumEnergy - chargingEnergy - chargingEnergy) * potentialsCanvas.height)/110); //U(N+3) (extra line)
     potentialsContext.lineTo((2*levelWidth + spacingWidth) , ((islandVal - chargingEnergy - quantumEnergy - chargingEnergy - chargingEnergy) * potentialsCanvas.height)/110); 
 
-    
     potentialsContext.strokeStyle = '#8a8a8a';
     potentialsContext.stroke();
     

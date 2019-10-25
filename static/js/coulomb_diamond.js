@@ -5,8 +5,8 @@ var diamondContext = diamondCanvas.getContext("2d");
 diamondContext.lineWidth = 2;
 
 var diamondSize = { 
-    height : 200,
-    width : 200,
+    height : 250,
+    width : diamondCanvas.width/4,
     ratio : 0.8
 };
 
