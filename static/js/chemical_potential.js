@@ -1,35 +1,34 @@
-var canvas = document.getElementById("chemical-potentials");
-var container = document.getElementById("chemical-potentials-container");
-canvas.width = container.offsetWidth;
-canvas.height = 300;
-var context = canvas.getContext("2d");
+var potentialsCanvas = document.getElementById("chemical-potentials");
+var potentialsContainer = document.getElementById("chemical-potentials-container");
+potentialsCanvas.width = potentialsContainer.offsetWidth;
+var potentialsContext = potentialsCanvas.getContext("2d");
 var spacingWidth = 12;
-var levelWidth = (canvas.width/3) - spacingWidth;
+var levelWidth = (potentialsCanvas.width/3) - spacingWidth;
 var chargingEnergy = 30;
 
 function generateSourceLine(sourceVal) {
-    context.clearRect(0, 0, levelWidth + 1, canvas.height);
-    context.beginPath();
-    context.rect(0, canvas.height - (sourceVal * canvas.height)/110  , levelWidth, canvas.height);
-    context.stroke();
+    potentialsContext.clearRect(0, 0, levelWidth + 1, potentialsCanvas.height);
+    potentialsContext.beginPath();
+    potentialsContext.rect(0, potentialsCanvas.height - (sourceVal * potentialsCanvas.height)/110  , levelWidth, potentialsCanvas.height);
+    potentialsContext.stroke();
 }
 
 function generateIslandLine(islandVal) {
-    context.clearRect((levelWidth + spacingWidth) - 1, 0, levelWidth + 2, canvas.height);
-    context.beginPath();
+    potentialsContext.clearRect((levelWidth + spacingWidth) - 1, 0, levelWidth + 2, potentialsCanvas.height);
+    potentialsContext.beginPath();
 
-    context.moveTo((  levelWidth + spacingWidth) ,  (islandVal * canvas.height)/110); //U(N) line
-    context.lineTo((2*levelWidth + spacingWidth) ,  (islandVal * canvas.height)/110);
+    potentialsContext.moveTo((  levelWidth + spacingWidth) ,  (islandVal * potentialsCanvas.height)/110); //U(N) line
+    potentialsContext.lineTo((2*levelWidth + spacingWidth) ,  (islandVal * potentialsCanvas.height)/110);
 
-    context.moveTo((  levelWidth + spacingWidth) , ((islandVal - chargingEnergy) * canvas.height)/110); //U(N+1) line
-    context.lineTo((2*levelWidth + spacingWidth) , ((islandVal - chargingEnergy) * canvas.height)/110);
+    potentialsContext.moveTo((  levelWidth + spacingWidth) , ((islandVal - chargingEnergy) * potentialsCanvas.height)/110); //U(N+1) line
+    potentialsContext.lineTo((2*levelWidth + spacingWidth) , ((islandVal - chargingEnergy) * potentialsCanvas.height)/110);
     
-    context.stroke();
+    potentialsContext.stroke();
 }
 
 function generateDrainLine(drainVal) {
-    context.clearRect((levelWidth+spacingWidth)*2 - 1, 0, levelWidth + 2, canvas.height);
-    context.beginPath();
-    context.rect((levelWidth+spacingWidth)*2, canvas.height - (drainVal * canvas.height)/110  , levelWidth, canvas.height);
-    context.stroke();
+    potentialsContext.clearRect((levelWidth+spacingWidth)*2 - 1, 0, levelWidth + 2, potentialsCanvas.height);
+    potentialsContext.beginPath();
+    potentialsContext.rect((levelWidth+spacingWidth)*2, potentialsCanvas.height - (drainVal * potentialsCanvas.height)/110  , levelWidth, potentialsCanvas.height);
+    potentialsContext.stroke();
 }
