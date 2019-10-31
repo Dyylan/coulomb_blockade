@@ -71,13 +71,16 @@ function drawDiamonds(x0, y0) {
     nextDiamond = addCoulombDiamond(nextDiamond.xNext, nextDiamond.yNext, 
         diamondSize.width*diamondSize.ratio, diamondSize.height*diamondSize.ratio);
     nextDiamond = addCoulombDiamond(nextDiamond.xNext, nextDiamond.yNext, 
-        diamondSize.width, diamondSize.height);
+        diamondSize.width, diamondSize.height);    
+    nextDiamond = addCoulombDiamond(nextDiamond.xNext, nextDiamond.yNext, 
+        diamondSize.width*diamondSize.ratio, diamondSize.height*diamondSize.ratio);
 }
 
 function drawDotLines(x, y) {
     diamondContext.beginPath();
 
     diamondContext.strokeStyle = "#33b500"; //#005df2
+
     diamondContext.moveTo(x,y);
     diamondContext.lineTo(vSDzero.x, y);
 
@@ -90,15 +93,15 @@ function drawDotLines(x, y) {
 function drawDot(x, y) {
     diamondContext.fillStyle = "#FF0000";
     diamondContext.beginPath();
-    diamondContext.arc(x, y, 1.5, 0, 1.5 * Math.PI);
+    diamondContext.arc(x, y, 2, 0, 2 * Math.PI);
     diamondContext.fill();
 }
 
 
 function calculateDiamondPosition(sourceValue, drainValue, gateValue) {
     var xFactor = (diamondSize.width/(chargingEnergy + quantumEnergy));
-    var xDiff = 60;
-    var yFactor = (diamondSize.height/(chargingEnergy + quantumEnergy));
+    var xDiff = 80;
+    var yFactor = -(diamondSize.height/(chargingEnergy + quantumEnergy));
     var coulombDiamondPosition = {
         x : xFactor * (gateValue - xDiff),
         y : vSDzero.y - (yFactor * (sourceValue - drainValue))
