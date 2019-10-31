@@ -87,7 +87,7 @@ function drawDiamonds(x0, y0) {
 function drawDotLines(x, y) {
     diamondContext.beginPath();
 
-    diamondContext.strokeStyle = "#33b500"; //#005df2
+    diamondContext.strokeStyle = "#0d622d"; 
 
     diamondContext.moveTo(x,y);
     diamondContext.lineTo(vSDzero.x, y);

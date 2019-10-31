@@ -26,12 +26,16 @@
       </div>
     </div>
 
-    <div class="slide-container">
-      <p>Gate Value: <span id="island-value"></span></p>
-      <input type="range" min="80" max="180" value="120" class="slider" id="island-slider">
-      <p>Source Value: <span id="source-value"></span></p>
-      <input type="range" min="35" max="65" value="50" class="slider" id="source-slider">
-      <p>Drain Value: <span id="drain-value"></span></p>
+    <div class="slider-container">
+      <div class="slider-box">
+        <p>Gate Value: <span id="island-value" style="font-weight: bold;"></span></p>
+        <input type="range" min="80" max="180" value="120" class="slider" id="island-slider">
+      </div>
+      <div class="slider-box">
+        <p>Source Value: <span id="source-value" style="font-weight: bold;"></span> 
+          &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Drain Value: <span id="drain-value" style="font-weight: bold;"></span></p>
+        <input type="range" min="35" max="65" value="50" class="slider" id="source-slider">        
+      </div>
       <input hidden type="range" min="1" max="100" value="50" class="slider" id="drain-slider">
     </div>
 

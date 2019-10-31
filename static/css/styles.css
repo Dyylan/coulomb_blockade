@@ -46,14 +46,20 @@ form fieldset li {
     width: 60%;
 }
 
-.slide-container {
+.slider-container {
     margin-top: 20px;
     width: 100%;
 }
-  
+ 
+.slider-box {
+    float: left;
+    width: 50%;
+}
+
 .slider {
     -webkit-appearance: none;
-    width: 100%;
+    width: 85%;
+    float: left;
     height: 15px;
     border-radius: 5px;
     background: #d3d3d3ab;
