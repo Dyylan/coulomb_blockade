@@ -3,6 +3,7 @@ var diamondContainer = document.getElementById("coulomb-diamond-container");
 diamondCanvas.width = diamondContainer.offsetWidth;
 var diamondContext = diamondCanvas.getContext("2d");
 diamondContext.lineWidth = 2;
+diamondContext.font = "15px Courier New";
 
 var diamondCount = 0;
 
@@ -32,6 +33,10 @@ function drawCoulombDiamondAxis() {
     diamondContext.lineTo(diamondCanvas.width, vSDzero.y);
     
     diamondContext.stroke();
+}
+
+function drawAxisLabels() {
+    diamondContext.fillText("|Vˢᵈ|", 15, 15);
 }
 
 function addCoulombDiamond(x, y, width, height) {
@@ -107,6 +112,7 @@ function calculateDiamondPosition(sourceValue, drainValue, gateValue) {
         y : vSDzero.y - (yFactor * (sourceValue - drainValue))
     };
     drawGreyBackground();
+    drawAxisLabels();
     drawDiamonds(vSDzero.x, vSDzero.y);
     drawDotLines(coulombDiamondPosition.x, coulombDiamondPosition.y);
     drawCoulombDiamondAxis();
@@ -114,5 +120,6 @@ function calculateDiamondPosition(sourceValue, drainValue, gateValue) {
 }
 
 drawGreyBackground();
+drawAxisLabels();
 drawDiamonds(vSDzero.x, vSDzero.y);
 drawCoulombDiamondAxis();
