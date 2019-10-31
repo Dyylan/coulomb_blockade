@@ -20,14 +20,14 @@ function generateSourceLine(sourceVal) {
 function generateDrainLine(drainVal) {
     potentialsContext.clearRect((levelWidth+spacingWidth)*2 - 2, 0, levelWidth + 3, potentialsCanvas.height);
     potentialsContext.beginPath();
-    potentialsContext.rect((levelWidth+spacingWidth)*2, potentialsCanvas.height - (drainVal * potentialsCanvas.height)/110  , levelWidth, potentialsCanvas.height);
+    potentialsContext.rect((levelWidth+spacingWidth)*2, potentialsCanvas.height - (drainVal * potentialsCanvas.height)/110  , levelWidth, potentialsCanvas.height); 
     potentialsContext.stroke();
 }
 
 function generateIslandLine(islandVal) {
     potentialsContext.clearRect((levelWidth + spacingWidth) - 2, 0, levelWidth + 3, potentialsCanvas.height);
     var i;
-    for (i=0; i < diamondCount; i++){
+    for (i=1; i < diamondCount+1; i++){
         drawEnergyLine(islandVal, i);
     }
 }
@@ -43,12 +43,14 @@ function drawEnergyLine(islandVal, i){
     
     potentialsContext.strokeStyle = '#FF9E20';
     potentialsContext.stroke();
+    potentialsContext.strokeStyle = "#000000";
     
-    if(i%2 == 1){
+    if(i%2 == 0){ //Virtual Energy Lines
         potentialsContext.beginPath();
         potentialsContext.moveTo(lineX1 , lineHeight + chargingEnergy);
         potentialsContext.lineTo(lineX2 , lineHeight + chargingEnergy);
         potentialsContext.strokeStyle = '#8a8a8a';
         potentialsContext.stroke();
+        potentialsContext.strokeStyle = "#000000";
     }
 } 
