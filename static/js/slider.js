@@ -14,14 +14,18 @@ generateDrainLine(sliderDrain.value);
 generateIslandLine(sliderIsland.value);
 
 sliderSource.oninput = function() {
+  var diffUpdateSource = outputSource.innerHTML - this.value;
+  outputDrain.innerHTML = parseInt(outputDrain.innerHTML) + diffUpdateSource;
   outputSource.innerHTML = this.value;
   generateSourceLine(this.value);
+  generateDrainLine(outputDrain.innerHTML);
   calculateDiamondPosition(this.value, sliderDrain.value, sliderIsland.value);
 }
 
 sliderDrain.oninput = function() {
   outputDrain.innerHTML = this.value;
-   generateDrainLine(this.value);
+  generateDrainLine(this.value);
+  generateSourceLine(this.value);
   calculateDiamondPosition(sliderSource.value, this.value, sliderIsland.value);
 }
 
