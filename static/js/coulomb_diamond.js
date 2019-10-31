@@ -74,12 +74,26 @@ function drawDiamonds(x0, y0) {
         diamondSize.width, diamondSize.height);
 }
 
+function drawDotLines(x, y) {
+    diamondContext.beginPath();
+
+    diamondContext.strokeStyle = "#33b500"; //#005df2
+    diamondContext.moveTo(x,y);
+    diamondContext.lineTo(vSDzero.x, y);
+
+    diamondContext.moveTo(x,y);
+    diamondContext.lineTo(x, vSDzero.y);
+
+    diamondContext.stroke();
+}
+
 function drawDot(x, y) {
     diamondContext.fillStyle = "#FF0000";
     diamondContext.beginPath();
-    diamondContext.arc(x, y, 2, 0, 2 * Math.PI);
+    diamondContext.arc(x, y, 1.5, 0, 1.5 * Math.PI);
     diamondContext.fill();
 }
+
 
 function calculateDiamondPosition(sourceValue, drainValue, gateValue) {
     var xFactor = (diamondSize.width/(chargingEnergy + quantumEnergy));
@@ -89,10 +103,13 @@ function calculateDiamondPosition(sourceValue, drainValue, gateValue) {
         x : xFactor * (gateValue - xDiff),
         y : vSDzero.y - (yFactor * (sourceValue - drainValue))
     };
+    drawGreyBackground();
+    drawDiamonds(vSDzero.x, vSDzero.y);
+    drawDotLines(coulombDiamondPosition.x, coulombDiamondPosition.y);
+    drawCoulombDiamondAxis();
     drawDot(coulombDiamondPosition.x, coulombDiamondPosition.y);
 }
 
 drawGreyBackground();
 drawDiamonds(vSDzero.x, vSDzero.y);
 drawCoulombDiamondAxis();
-
