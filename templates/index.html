@@ -17,8 +17,13 @@
 <body>
     <h1>The Coulomb Blockade</h1>
 
-    <div class="chemical-potentials-container" id="chemical-potentials-container">
-        <canvas id="chemical-potentials" width="300" height="600"></canvas>
+    <div id="coulomb-blockade-applet">
+      <div id="chemical-potentials-container">
+        <canvas id="chemical-potentials" width="150" height="300"></canvas>
+      </div>
+      <div id="coulomb-diamond-container">
+          <canvas id="coulomb-diamond" width="150" height="300"></canvas>
+      </div>
     </div>
 
     <div class="slide-container">
@@ -30,9 +35,7 @@
       <p>Island Value: <span id="island-value"></span></p>
     </div>    
 
-    <div class="coulomb-diamond-container" id="coulomb-diamond-container">
-        <canvas id="coulomb-diamond" width="300" height="600"></canvas>
-    </div>
+
     
     <script src="{{ url_for('static', filename='js/chemical_potential.js') }}"></script>   
     <script src="{{ url_for('static', filename='js/coulomb_diamond.js') }}"></script>    

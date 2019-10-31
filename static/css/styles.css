@@ -30,8 +30,20 @@ form fieldset li {
     padding: 0;
 }
 
-.chemical-potentials-container {
-    width: 100%;
+#coulomb-blockade-applet {
+    height: 300px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#chemical-potentials-container {
+    float: left;
+    width: 48%;
+}
+
+#coulomb-diamond-container {
+    float: left;
+    width: 48%;
 }
 
 .slide-container {

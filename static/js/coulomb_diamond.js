@@ -7,7 +7,7 @@ diamondContext.lineWidth = 2;
 var diamondCount = 0;
 
 var diamondSize = { 
-    height : 250,
+    height : 125,
     width : diamondCanvas.width/4,
     ratio : chargingEnergy / (chargingEnergy + quantumEnergy)
 };
@@ -25,8 +25,8 @@ function drawGreyBackground() {
 function drawCoulombDiamondAxis() {
     diamondContext.beginPath();
     diamondContext.strokeStyle = "#444444";
-    diamondContext.moveTo(0,0);
-    diamondContext.lineTo(0, diamondCanvas.height);
+    diamondContext.moveTo(1,0);
+    diamondContext.lineTo(1, diamondCanvas.height);
 
     diamondContext.moveTo(vSDzero.x, vSDzero.y);
     diamondContext.lineTo(diamondCanvas.width, vSDzero.y);
