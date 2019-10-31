@@ -7,7 +7,7 @@ diamondContext.lineWidth = 2;
 var diamondCount = 0;
 
 var diamondSize = { 
-    height : 125,
+    height : 150,
     width : diamondCanvas.width/4,
     ratio : chargingEnergy / (chargingEnergy + quantumEnergy)
 };

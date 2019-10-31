@@ -31,19 +31,19 @@ form fieldset li {
 }
 
 #coulomb-blockade-applet {
-    height: 300px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    height: 350px;
+    margin-top: 35px;
+    margin-bottom: 35px;
 }
 
 #chemical-potentials-container {
     float: left;
-    width: 48%;
+    width: 36%;
 }
 
 #coulomb-diamond-container {
     float: left;
-    width: 48%;
+    width: 60%;
 }
 
 .slide-container {
