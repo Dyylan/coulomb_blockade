@@ -106,7 +106,7 @@ function drawDot(x, y) {
 function calculateDiamondPosition(sourceValue, drainValue, gateValue) {
     var xFactor = (diamondSize.width/(chargingEnergy + quantumEnergy));
     var xDiff = 80;
-    var yFactor = -(diamondSize.height/(chargingEnergy + quantumEnergy));
+    var yFactor = -2*(diamondSize.height/(chargingEnergy + quantumEnergy));
     var coulombDiamondPosition = {
         x : xFactor * (gateValue - xDiff),
         y : vSDzero.y - (yFactor * (sourceValue - drainValue))
